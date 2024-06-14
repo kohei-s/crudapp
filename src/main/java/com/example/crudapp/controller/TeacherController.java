@@ -28,6 +28,14 @@ public class TeacherController {
         return "teachers/get-teachers";
     }
 
+    @GetMapping("addTeacher")
+    public String addTeacher(Model model) {
+        Teacher teacher = new Teacher();
+        model.addAttribute("teacher", teacher);
+
+        return "teachers/teacher-form";
+    }
+
     @GetMapping("/updateTeacher")
     public String updateTeacher(@RequestParam("teacherId") int id, Model model) {
         Teacher teacher = teacherService.findById(id);
